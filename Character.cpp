@@ -8,6 +8,8 @@
 
 #include "Character.h"
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
 //ocnstant arrays for randomize character
 string NAME[] = {"Andrew", "Theo", "Hailey", "Vera"};
@@ -18,68 +20,115 @@ string TASKAB[] = {"Cooking", "Cleaning", "Dying"};
 string HAIR[] = {"short black", "long white", "short gold"};
 string EYECOLOR[] = {"black", "blue", "brown", "green"};
 
-Character :: Character () {
-    
+Character :: Character ()
+(
+    // Get the system time.
+    unsigned seed = time(0);
+    srand(seed);
     int randomSelector;
-    
-    randomSelector = rand() % sizeof(NAME) / sizeof(NAME[0]);
+    randomSelector = rand() % (sizeof(NAME) / sizeof(NAME[0]));
     setName(NAME[randomSelector]);
     
-    randomSelector = rand() % sizeof(GENDER) / sizeof(GENDER[0]);
+    randomSelector = rand() % (sizeof(GENDER) / sizeof(GENDER[0]));
     setGender(GENDER[randomSelector]);
     
-    randomSelector = rand() % sizeof(RACE) / sizeof(RACE[0]);
+    randomSelector = rand() % (sizeof(RACE) / sizeof(RACE[0]));
     setRace(RACE[randomSelector]);
     
-    randomSelector = rand() % sizeof(OCCUPATION) / sizeof(OCCUPATION[0]);
+    randomSelector = rand() % (sizeof(OCCUPATION) / sizeof(OCCUPATION[0]));
     setOccupation(OCCUPATION[randomSelector]);
     
-    randomSelector = rand() % sizeof(TASKAB) / sizeof(TASKAB[0]);
+    randomSelector = rand() % (sizeof(TASKAB) / sizeof(TASKAB[0]));
     setTaSkAb(TASKAB[randomSelector]);
     
     setHeight(rand() & 200 + 100);
     setWeight(rand() & 200 + 50);
     
-    randomSelector = rand() % sizeof(hairA)/sizeof(hairA[0]);
+    randomSelector = rand() % (sizeof(hairA)/sizeof(hairA[0]));
     setHair(HAIR[randomSelector]);
     
-    randomSelector = rand() % sizeof(eyeColorA)/sizeof(eyeColorA[0]);
+    randomSelector = rand() % (sizeof(eyeColorA)/sizeof(eyeColorA[0]));
     setEyeColor(EYECOLOR[randomSelector]);
     
 }
 
 
-void Character :: setName(string);
-void Character :: setGender(string);
-void Character :: setRace(string);
-void Character :: setOccupation(string);
-void Character :: setTaSkAb(string);
-void Character :: setHeight(int);
-void Character :: setWeight(int);
-void Character :: setHair (string);
-void Character :: setEyeColor(string);
+/*-----SETTERS-----*/
+ void Character :: setName(string name)
+{
+    Name = name;
+}
+ 
+ void Character :: setGender(string gender)
+{
+    Gender = gender;
+}
+ 
+ void Character :: setRace(string race)
+{
+    Race = race;
+}
+ 
+ void Character :: setOccupation(string occ)
+{
+    Occupation = occ;
+}
+ 
+ void Character :: setTaSkAb(string taskab)
+{
+    TaSkAb = taskab;
+}
+ 
+ void Character :: setHeight(int height)
+{
+    Height = height;
+}
+ 
+ void Character :: setWeight(int weight)
+{
+    Weight = weight;
+}
+ 
+ void Character :: setHair (string hair)
+{
+    Hair = hair;
+}
+ 
+ void Character :: setEyeColor(string eye)
+{
+    EyeColor = eye;
+}
 
-string Character :: getName() {
+ /*-----GETTERS-----*/
+string Character :: getName()
+{
     return Name;
 }
-string Character :: getGender() {
+string Character :: getGender()
+{
     return Gender;
 }
-string Character :: getRace() {
+string Character :: getRace()
+{
     return Race;
 }
-string Character :: getTaSkAb() {
+string Character :: getTaSkAb()
+{
     return TASKAB;
 }
-int Character :: getHeight() {
+int Character :: getHeight()
+{
     return Height;
 }
-int Character :: getWeight() {
+int Character :: getWeight()
+{
     return weight;
 }
-string Character :: getHair() {
+string Character :: getHair()
+{
     return Hair;
 }
-string Character :: getEyeColor() {
+string Character :: getEyeColor()
+{
     return EyeColor;
 }
