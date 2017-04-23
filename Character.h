@@ -32,17 +32,17 @@ public:
     Character();
     
     /*-----SETTERS-----*/
-    void setName();
+    void setName(string);
+    void setGender(string);
+    void setRace(string);
+    void setTaSkAb(string);
+    void setHeight(int);
+    void setWeight(int);
+    void setHair (string);
+    void setEyeColor(string);
+    
     
     /*-----GETTERS-----*/
-    string getName();
-    string getGender();
-    string getRace();
-    string getTaSkAb();
-    int getHeight();
-    int getWeight();
-    string getHair();
-    string getEyecolor();
 };
 
 #endif /* CHARACTER_H */
