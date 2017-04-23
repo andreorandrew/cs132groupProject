@@ -7,11 +7,14 @@
 //
 
 #include "Character.h"
+#include <iostream>
 #include <string>
 #include <cstdlib>
 #include <ctime>
 
-//ocnstant arrays for randomize character
+using namespace std;
+
+//constant arrays for randomize character
 string NAME[] = {"Andrew", "Theo", "Hailey", "Vera"};
 string GENDER[] = {"female", "male"};
 string RACE[] = {"human", "not human"};
@@ -101,27 +104,51 @@ void Character :: setEyeColor(string eye)
 }
 
 /*-----GETTERS-----*/
-string Character :: getName() {
+string Character::getName() {
     return Name;
 }
-string Character :: getGender() {
+string Character::getGender() {
     return Gender;
 }
-string Character :: getRace() {
+string Character::getRace() {
     return Race;
 }
-string Character :: getTaSkAb() {
+string Character::getOccupation()
+{
+    return Occupation;
+}
+string Character::getTaSkAb() {
     return TaSkAb;
 }
-int Character :: getHeight() {
+int Character::getHeight() {
     return Height;
 }
-int Character :: getWeight() {
+int Character::getWeight() {
     return Weight;
 }
-string Character :: getHair() {
+string Character::getHair() {
     return Hair;
 }
-string Character :: getEyeColor() {
+string Character::getEyeColor() {
     return EyeColor;
+}
+
+void Character::displayInfo()
+{
+    if (getName() == "" && getGender() == "")
+   {
+       cout << "Character Doesn't Exist." << endl << endl;
+    }
+   else
+   {
+       cout << "Name: " << getName() << endl
+           << "Gender: " << getGender() << endl
+           << "Race: " << getRace() << endl
+           << "Occupation: " << getOccupation() << endl
+           << "Talents, Abiliities, or Skills: " << getTaSkAb() << endl
+           << "Hair: " << getHair() << endl
+           << "Eyes Color: " << getEyeColor() << endl
+           << "Weight: " << getWeight() << " kg" << endl
+           << "Height: " << getHeight() << " cm" << endl << endl;
+    }
 }

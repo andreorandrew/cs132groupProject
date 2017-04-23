@@ -56,6 +56,10 @@ public:
     int getWeight();
     string getHair();
     string getEyeColor();
+    
+    /*-----PRINTER-----*/
+    void displayInfo();
+    
 };
 
 #endif /* CHARACTER_H */
