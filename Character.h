@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Character.h
  * Author: Andrew
  *
@@ -18,7 +18,7 @@
 
 using namespace std;
 
-class Character 
+class Character
 {
 private:
     string Name;

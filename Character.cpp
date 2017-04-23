@@ -1,6 +1,6 @@
 //
 //  Character.cpp
-//  
+//
 //
 //  Created by Jia Na on 4/23/17.
 //
@@ -31,28 +31,33 @@ Character :: Character ()
     int randomSelector;
     randomSelector = rand() % (sizeof(NAME) / sizeof(NAME[0]));
     setName(NAME[randomSelector]);
+    cout << randomSelector << endl;
     
     randomSelector = rand() % (sizeof(GENDER) / sizeof(GENDER[0]));
     setGender(GENDER[randomSelector]);
+    cout << randomSelector << endl;
     
     randomSelector = rand() % (sizeof(RACE) / sizeof(RACE[0]));
     setRace(RACE[randomSelector]);
+    cout << randomSelector << endl;
     
     randomSelector = rand() % (sizeof(OCCUPATION) / sizeof(OCCUPATION[0]));
     setOccupation(OCCUPATION[randomSelector]);
+    cout << randomSelector << endl;
     
     randomSelector = rand() % (sizeof(TASKAB) / sizeof(TASKAB[0]));
     setTaSkAb(TASKAB[randomSelector]);
+    cout << randomSelector << endl;
     
-    setHeight(rand() & 200 + 100);
-    setWeight(rand() & 200 + 50);
+    setHeight(rand() % (200 + 100));
+    setWeight(rand() % (200 + 50));
     
-
+    
     randomSelector = rand() % (sizeof(HAIR)/sizeof(HAIR[0]));
     setHair(HAIR[randomSelector]);
     
     randomSelector = rand() % (sizeof(EYECOLOR)/sizeof(EYECOLOR[0]));
-
+    
     setEyeColor(EYECOLOR[randomSelector]);
     
 }
@@ -136,19 +141,19 @@ string Character::getEyeColor() {
 void Character::displayInfo()
 {
     if (getName() == "" && getGender() == "")
-   {
-       cout << "Character Doesn't Exist." << endl << endl;
+    {
+        cout << "Character Doesn't Exist." << endl << endl;
     }
-   else
-   {
-       cout << "Name: " << getName() << endl
-           << "Gender: " << getGender() << endl
-           << "Race: " << getRace() << endl
-           << "Occupation: " << getOccupation() << endl
-           << "Talents, Abiliities, or Skills: " << getTaSkAb() << endl
-           << "Hair: " << getHair() << endl
-           << "Eyes Color: " << getEyeColor() << endl
-           << "Weight: " << getWeight() << " kg" << endl
-           << "Height: " << getHeight() << " cm" << endl << endl;
+    else
+    {
+        cout << "Name: " << getName() << endl
+        << "Gender: " << getGender() << endl
+        << "Race: " << getRace() << endl
+        << "Occupation: " << getOccupation() << endl
+        << "Talents, Abiliities, or Skills: " << getTaSkAb() << endl
+        << "Hair: " << getHair() << endl
+        << "Eyes Color: " << getEyeColor() << endl
+        << "Weight: " << getWeight() << " kg" << endl
+        << "Height: " << getHeight() << " cm" << endl << endl;
     }
 }
