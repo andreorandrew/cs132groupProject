@@ -24,6 +24,7 @@ private:
     string Name;
     string Gender;
     string Race;
+    string Occupation;
     string TaSkAb;
     int Height;
     int Weight;
@@ -37,6 +38,7 @@ public:
     void setName(string);
     void setGender(string);
     void setRace(string);
+    void setOccupation(string);
     void setTaSkAb(string);
     void setHeight(int);
     void setWeight(int);
@@ -48,11 +50,12 @@ public:
     string getName();
     string getGender();
     string getRace();
+    string getOccupation();
     string getTaSkAb();
     int getHeight();
     int getWeight();
     string getHair();
-    string getEyecolor();
+    string getEyeColor();
 };
 
 #endif /* CHARACTER_H */
