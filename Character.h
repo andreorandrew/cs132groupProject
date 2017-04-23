@@ -35,6 +35,14 @@ public:
     void setName();
     
     /*-----GETTERS-----*/
+    string getName();
+    string getGender();
+    string getRace();
+    string getTaSkAb();
+    int getHeight();
+    int getWeight();
+    string getHair();
+    string getEyecolor();
 };
 
 #endif /* CHARACTER_H */
