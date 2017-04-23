@@ -16,6 +16,8 @@
 
 #include <string>
 
+using namespace std;
+
 class Character 
 {
 private:
@@ -32,7 +34,15 @@ public:
     Character();
     
     /*-----SETTERS-----*/
-    void setName();
+    void setName(string);
+    void setGender(string);
+    void setRace(string);
+    void setTaSkAb(string);
+    void setHeight(int);
+    void setWeight(int);
+    void setHair (string);
+    void setEyeColor(string);
+    
     
     /*-----GETTERS-----*/
     string getName();
