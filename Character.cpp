@@ -44,91 +44,84 @@ Character :: Character ()
     setHeight(rand() & 200 + 100);
     setWeight(rand() & 200 + 50);
     
-    randomSelector = rand() % (sizeof(hairA)/sizeof(hairA[0]));
+
+    randomSelector = rand() % (sizeof(HAIR)/sizeof(HAIR[0]));
     setHair(HAIR[randomSelector]);
     
-    randomSelector = rand() % (sizeof(eyeColorA)/sizeof(eyeColorA[0]));
+    randomSelector = rand() % (sizeof(EYECOLOR)/sizeof(EYECOLOR[0]));
+
     setEyeColor(EYECOLOR[randomSelector]);
     
 }
 
-
 /*-----SETTERS-----*/
- void Character :: setName(string name)
+void Character :: setName(string name)
 {
     Name = name;
 }
- 
- void Character :: setGender(string gender)
+
+void Character :: setGender(string gender)
 {
     Gender = gender;
 }
- 
- void Character :: setRace(string race)
+
+void Character :: setRace(string race)
 {
     Race = race;
 }
- 
- void Character :: setOccupation(string occ)
+
+void Character :: setOccupation(string occ)
 {
     Occupation = occ;
 }
- 
- void Character :: setTaSkAb(string taskab)
+
+void Character :: setTaSkAb(string taskab)
 {
     TaSkAb = taskab;
 }
- 
- void Character :: setHeight(int height)
+
+void Character :: setHeight(int height)
 {
     Height = height;
 }
- 
- void Character :: setWeight(int weight)
+
+void Character :: setWeight(int weight)
 {
     Weight = weight;
 }
- 
- void Character :: setHair (string hair)
+
+void Character :: setHair (string hair)
 {
     Hair = hair;
 }
- 
- void Character :: setEyeColor(string eye)
+
+void Character :: setEyeColor(string eye)
 {
     EyeColor = eye;
 }
 
- /*-----GETTERS-----*/
-string Character :: getName()
-{
+/*-----GETTERS-----*/
+string Character :: getName() {
     return Name;
 }
-string Character :: getGender()
-{
+string Character :: getGender() {
     return Gender;
 }
-string Character :: getRace()
-{
+string Character :: getRace() {
     return Race;
 }
-string Character :: getTaSkAb()
-{
-    return TASKAB;
+string Character :: getTaSkAb() {
+    return TaSkAb;
 }
-int Character :: getHeight()
-{
+int Character :: getHeight() {
     return Height;
 }
-int Character :: getWeight()
-{
-    return weight;
+int Character :: getWeight() {
+    return Weight;
 }
-string Character :: getHair()
-{
+string Character :: getHair() {
     return Hair;
 }
-string Character :: getEyeColor()
-{
+string Character :: getEyeColor() {
     return EyeColor;
 }
