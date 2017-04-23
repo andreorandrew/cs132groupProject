@@ -21,7 +21,7 @@ string HAIR[] = {"short black", "long white", "short gold"};
 string EYECOLOR[] = {"black", "blue", "brown", "green"};
 
 Character :: Character ()
-(
+{
     // Get the system time.
     unsigned seed = time(0);
     srand(seed);
