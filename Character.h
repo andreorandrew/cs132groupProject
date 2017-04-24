@@ -1,15 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * File:   Character.h
- * Author: Andrew
- *
- * Created on April 23, 2017, 2:50 PM
- */
+    Header File
+    Homework 13 Group Project 
+    1st Submission 4/23/2017
+    Team members: 
+        Theo Siswadi
+        Jia Na (Vera)
+        Anh Tran (Andrew)
+*/
 
 #ifndef CHARACTER_H
 #define CHARACTER_H
@@ -18,8 +15,10 @@
 
 using namespace std;
 
+//class declaration
 class Character
 {
+ //fields
 private:
     string Name;
     string Gender;
@@ -32,7 +31,7 @@ private:
     string EyeColor;
 public:
     /*-----CONSTRUCTORS-----*/
-    Character();
+    Character();//default constructor
     
     /*-----SETTERS-----*/
     void setName(string);
