@@ -33,6 +33,11 @@ public:
     /*-----CONSTRUCTORS-----*/
     Character();//default constructor
     
+    //destructor
+    ~Character() 
+    {
+        cout << "In destructor now." << endl;
+    }
     /*-----SETTERS-----*/
     void setName(string);
     void setGender(string);
