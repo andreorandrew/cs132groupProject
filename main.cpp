@@ -1,12 +1,12 @@
 /*
- Homework 11-4
- 1st Submission 4/16/2017
- Team members:
- Theo Siswadi
- Jia Na (Vera)
- Yuxin Wang (Hailey)
- Anh Tran (Andrew)
- */
+    Main File
+    Homework 13 Group Project 
+    1st Submission 4/23/2017
+    Team members: 
+        Theo Siswadi
+        Jia Na (Vera)
+        Anh Tran (Andrew)
+*/
 
 //header files
 #include <iostream>
@@ -20,8 +20,9 @@ int displayMainMenu(int);
 int main()
 {
     
+    //define variables
     int choice;
-    Character characters[SIZE];         //create a character array
+    Character characters[SIZE];//create a character array
     int remainingChar = SIZE;
     
     do//do while loop for menu
@@ -40,15 +41,14 @@ int main()
         }
         else if (choice == 2)           // randomize character
         {
-            //the array created already contains random characters
-            //just ask user for the next choice
             Character newChar;
             
-            characters[SIZE - remainingChar] = newChar;
+            characters[SIZE - remainingChar] = newChar; //assign a random character to the next element
             
             remainingChar--;
             
-            cout << "Done! Finish randomization :)" << endl;
+            //display feedback
+            cout << "Done! Finish randomization :)" << endl; 
         }
         else if (choice == 3)           //display characters
         {
