@@ -1,11 +1,14 @@
-//
-//  Character.cpp
-//
-//
-//  Created by Jia Na on 4/23/17.
-//
-//
+/*
+    Implementation File
+    Homework 13 Group Project 
+    1st Submission 4/23/2017
+    Team members: 
+        Theo Siswadi
+        Jia Na (Vera)
+        Anh Tran (Andrew)
+*/
 
+//header files
 #include "Character.h"
 #include <iostream>
 #include <string>
@@ -14,7 +17,7 @@
 
 using namespace std;
 
-//constant arrays for randomize character
+//constant arrays for randomize character options
 string NAME[] = {"Andrew", "Theo", "Hailey", "Vera"};
 string GENDER[] = {"female", "male"};
 string RACE[] = {"human", "not human"};
@@ -28,7 +31,11 @@ Character :: Character ()
     // Get the system time.
     unsigned seed = time(0);
     srand(seed);
+    //customized random number
     int randomSelector;
+    //for all character's characteristics, a random number within a customized range
+    //is chosen. An element from the respective array will be randomly chosen and set
+    //to the Character (assigned to Character's respective field)
     randomSelector = rand() % (sizeof(NAME) / sizeof(NAME[0]));
     setName(NAME[randomSelector]);
     cout << randomSelector << endl;
@@ -138,6 +145,7 @@ string Character::getEyeColor() {
     return EyeColor;
 }
 
+//member function that displays all the Character's characteristics
 void Character::displayInfo()
 {
     if (getName() == "" && getGender() == "")
