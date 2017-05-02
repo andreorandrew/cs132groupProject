@@ -15,7 +15,8 @@
 using namespace std;
 
 //main func. MAIN
-const int SIZE = 4;
+
+const int SIZE = 5;
 int displayMainMenu(int);
 int main()
 {

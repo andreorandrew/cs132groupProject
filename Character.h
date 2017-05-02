@@ -12,6 +12,7 @@
 #define CHARACTER_H
 
 #include <string>
+#include<iostream>
 
 using namespace std;
 
@@ -29,10 +30,13 @@ private:
     int Weight;
     string Hair;
     string EyeColor;
+	string* Conquered;//theo edit
 public:
     /*-----CONSTRUCTORS-----*/
     Character();//default constructor
-    
+
+	  Character(const Character&); //copy constructor
+
     //destructor
     ~Character() 
     {
@@ -48,6 +52,7 @@ public:
     void setWeight(int);
     void setHair (string);
     void setEyeColor(string);
+	void setKingdomConquered(string); //theo edit
     
     
     /*-----GETTERS-----*/
@@ -60,6 +65,13 @@ public:
     int getWeight();
     string getHair();
     string getEyeColor();
+	string getKingdomConquered();//theo edit
+
+	/*-----OVerload Operators-----*/
+	//theo edit
+	void operator=(const Character&);
+	Character operator+(const Character&);
+	Character operator-(const Character&);
     
     /*-----PRINTER-----*/
     void displayInfo();

@@ -25,6 +25,8 @@ string OCCUPATION[] = {"fighter", "wizard", "cleric"};
 string TASKAB[] = {"Cooking", "Cleaning", "Dying"};
 string HAIR[] = {"short black", "long white", "short gold"};
 string EYECOLOR[] = {"black", "blue", "brown", "green"};
+string KINGDOM[] = { "Goat Town", "Sheep Village", "Westeros", "Narnia" };//theo edit
+
 
 Character :: Character ()
 {
@@ -64,9 +66,28 @@ Character :: Character ()
     setHair(HAIR[randomSelector]);
     
     randomSelector = rand() % (sizeof(EYECOLOR)/sizeof(EYECOLOR[0]));
-    
+
     setEyeColor(EYECOLOR[randomSelector]);
-    
+
+	randomSelector = rand() % (sizeof(KINGDOM) / sizeof(KINGDOM[0]));//theo edit
+	Conquered = new string[1];
+	setKingdomConquered(KINGDOM[randomSelector]);  
+}
+
+Character::Character(const Character &o)//theo edit
+{
+	setName(o.Name);
+	setGender(o.Gender);
+	setRace(o.Race);
+	setRace(o.Race);
+	setOccupation(o.Occupation);
+	setTaSkAb(o.TaSkAb);
+	setHeight(o.Height);
+	setWeight(o.Weight);
+	setHair(o.Hair);
+	setEyeColor(o.EyeColor);
+	Conquered = new string[1];
+	setKingdomConquered(*(o.Conquered));    
 }
 
 /*-----SETTERS-----*/
@@ -115,6 +136,11 @@ void Character :: setEyeColor(string eye)
     EyeColor = eye;
 }
 
+void Character::setKingdomConquered(string king)
+{
+	*Conquered = king;
+}
+
 /*-----GETTERS-----*/
 string Character::getName() {
     return Name;
@@ -145,6 +171,11 @@ string Character::getEyeColor() {
     return EyeColor;
 }
 
+string Character::getKingdomConquered()//theo edit
+{
+	return *Conquered;
+}
+
 //member function that displays all the Character's characteristics
 void Character::displayInfo()
 {
@@ -154,14 +185,52 @@ void Character::displayInfo()
     }
     else
     {
-        cout << "Name: " << getName() << endl
-        << "Gender: " << getGender() << endl
-        << "Race: " << getRace() << endl
-        << "Occupation: " << getOccupation() << endl
-        << "Talents, Abiliities, or Skills: " << getTaSkAb() << endl
-        << "Hair: " << getHair() << endl
-        << "Eyes Color: " << getEyeColor() << endl
-        << "Weight: " << getWeight() << " kg" << endl
-        << "Height: " << getHeight() << " cm" << endl << endl;
+		  cout << "Name: " << getName() << endl
+			<< "Gender: " << getGender() << endl
+			<< "Race: " << getRace() << endl
+			<< "Occupation: " << getOccupation() << endl
+			<< "Talents, Abiliities, or Skills: " << getTaSkAb() << endl
+			<< "Hair: " << getHair() << endl
+			<< "Eyes Color: " << getEyeColor() << endl
+			<< "Weight: " << getWeight() << " kg" << endl
+			<< "Height: " << getHeight() << " cm" << endl
+			<< "Kingdom Conquered: " << getKingdomConquered() << endl << endl;
+
     }
+}
+
+/*-----Overload Operators-----*/
+//theo edit
+
+void Character::operator=(const Character& o)
+{
+	delete[] Conquered;
+	setName(o.Name);
+	setGender(o.Gender);
+	setRace(o.Race);
+	setRace(o.Race);
+	setOccupation(o.Occupation);
+	setTaSkAb(o.TaSkAb);
+	setHeight(o.Height);
+	setWeight(o.Weight);
+	setHair(o.Hair);
+	setEyeColor(o.EyeColor);
+	Conquered = new string[1];
+	setKingdomConquered(*(o.Conquered));
+}
+Character Character::operator+(const Character& right)
+{
+	Character temp;
+	temp.Height = Height + right.Height;
+	return temp;
+}
+Character Character::operator-(const Character& right)
+{
+	Character temp;
+	temp.Height = Height - right.Height;
+	if (temp.Height < 0)
+	{
+		temp.Height = 1;
+	}
+	return temp;
 }
