@@ -26,6 +26,7 @@ private:
     string Race;
     string Occupation;
     string TaSkAb;
+    int level;
     int Height;
     int Weight;
     string Hair;
@@ -35,7 +36,7 @@ public:
     /*-----CONSTRUCTORS-----*/
     Character();//default constructor
 
-	  Character(const Character&); //copy constructor
+	Character(const Character&); //copy constructor
 
     //destructor
     ~Character() 
@@ -48,6 +49,7 @@ public:
     void setRace(string);
     void setOccupation(string);
     void setTaSkAb(string);
+    void setLevel(int);
     void setHeight(int);
     void setWeight(int);
     void setHair (string);
@@ -61,6 +63,7 @@ public:
     string getRace();
     string getOccupation();
     string getTaSkAb();
+    int getLevel();
     int getHeight();
     int getWeight();
     string getHair();
@@ -71,7 +74,11 @@ public:
 	//theo edit
 	void operator=(const Character&);
 	Character operator+(const Character&);
-	Character operator-(const Character&);
+    Character operator-(const Character&);
+    //prefix
+    Character operator++();
+    //postfix
+    Character operator++(int);
     
     /*-----PRINTER-----*/
     void displayInfo();
@@ -79,4 +86,6 @@ public:
 };
 
 #endif /* CHARACTER_H */
+
+
 
