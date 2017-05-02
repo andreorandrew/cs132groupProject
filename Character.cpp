@@ -58,8 +58,9 @@ Character :: Character ()
     setTaSkAb(TASKAB[randomSelector]);
     cout << randomSelector << endl;
     
-    setHeight(rand() % (200 + 100));
-    setWeight(rand() % (200 + 50));
+    setLevel(rand() % 10);
+    setHeight(rand() % (200)+ 100);
+    setWeight(rand() % (100) + 50);
     
     
     randomSelector = rand() % (sizeof(HAIR)/sizeof(HAIR[0]));
@@ -82,6 +83,7 @@ Character::Character(const Character &o)//theo edit
 	setRace(o.Race);
 	setOccupation(o.Occupation);
 	setTaSkAb(o.TaSkAb);
+    setLevel(o.level);
 	setHeight(o.Height);
 	setWeight(o.Weight);
 	setHair(o.Hair);
@@ -116,6 +118,10 @@ void Character :: setTaSkAb(string taskab)
     TaSkAb = taskab;
 }
 
+void Character:: setLevel(int n)
+{
+    level = n;
+}
 void Character :: setHeight(int height)
 {
     Height = height;
@@ -155,8 +161,13 @@ string Character::getOccupation()
 {
     return Occupation;
 }
-string Character::getTaSkAb() {
+string Character::getTaSkAb()
+{
     return TaSkAb;
+}
+int Character::getLevel()
+{
+    return level;
 }
 int Character::getHeight() {
     return Height;
@@ -190,6 +201,7 @@ void Character::displayInfo()
 			<< "Race: " << getRace() << endl
 			<< "Occupation: " << getOccupation() << endl
 			<< "Talents, Abiliities, or Skills: " << getTaSkAb() << endl
+            << "Level: " << getLevel() << endl
 			<< "Hair: " << getHair() << endl
 			<< "Eyes Color: " << getEyeColor() << endl
 			<< "Weight: " << getWeight() << " kg" << endl
@@ -234,3 +246,23 @@ Character Character::operator-(const Character& right)
 	}
 	return temp;
 }
+
+//prefix
+Character Character :: operator++() {
+    level++;
+    return *this;
+}
+
+//postfix
+Character Character :: operator++(int) {
+    Character temp = *this;
+    level++;
+    return temp;
+}
+
+
+
+
+
+
+
