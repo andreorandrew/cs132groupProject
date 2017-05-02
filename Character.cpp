@@ -27,6 +27,7 @@ string HAIR[] = {"short black", "long white", "short gold"};
 string EYECOLOR[] = {"black", "blue", "brown", "green"};
 string KINGDOM[] = { "Goat Town", "Sheep Village", "Westeros", "Narnia" };//theo edit
 
+
 Character :: Character ()
 {
     // Get the system time.
@@ -65,6 +66,7 @@ Character :: Character ()
     setHair(HAIR[randomSelector]);
     
     randomSelector = rand() % (sizeof(EYECOLOR)/sizeof(EYECOLOR[0]));
+
     setEyeColor(EYECOLOR[randomSelector]);
 
 	randomSelector = rand() % (sizeof(KINGDOM) / sizeof(KINGDOM[0]));//theo edit
@@ -85,10 +87,8 @@ Character::Character(const Character &o)//theo edit
 	setHair(o.Hair);
 	setEyeColor(o.EyeColor);
 	Conquered = new string[1];
-	setKingdomConquered(*(o.Conquered));
+	setKingdomConquered(*(o.Conquered));    
 }
-
-
 
 /*-----SETTERS-----*/
 void Character :: setName(string name)
@@ -135,11 +135,11 @@ void Character :: setEyeColor(string eye)
 {
     EyeColor = eye;
 }
+
 void Character::setKingdomConquered(string king)
 {
 	*Conquered = king;
 }
-
 
 /*-----GETTERS-----*/
 string Character::getName() {
@@ -170,6 +170,7 @@ string Character::getHair() {
 string Character::getEyeColor() {
     return EyeColor;
 }
+
 string Character::getKingdomConquered()//theo edit
 {
 	return *Conquered;
@@ -184,7 +185,7 @@ void Character::displayInfo()
     }
     else
     {
-		cout << "Name: " << getName() << endl
+		  cout << "Name: " << getName() << endl
 			<< "Gender: " << getGender() << endl
 			<< "Race: " << getRace() << endl
 			<< "Occupation: " << getOccupation() << endl

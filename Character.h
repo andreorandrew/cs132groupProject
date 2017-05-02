@@ -34,7 +34,9 @@ private:
 public:
     /*-----CONSTRUCTORS-----*/
     Character();//default constructor
-	Character(const Character&); //copy constructor
+
+	  Character(const Character&); //copy constructor
+
     //destructor
     ~Character() 
     {
