@@ -25,8 +25,7 @@ string OCCUPATION[] = {"fighter", "wizard", "cleric"};
 string TASKAB[] = {"Cooking", "Cleaning", "Dying"};
 string HAIR[] = {"short black", "long white", "short gold"};
 string EYECOLOR[] = {"black", "blue", "brown", "green"};
-string KINGDOM[] = { "Goat Town", "Sheep Village", "Westeros", "Narnia" };//theo edit
-
+string KINGDOM[] = { "Goat Town", "Sheep Village", "Westeros", "Narnia" };
 
 Character :: Character ()
 {
@@ -70,12 +69,32 @@ Character :: Character ()
 
     setEyeColor(EYECOLOR[randomSelector]);
 
-	randomSelector = rand() % (sizeof(KINGDOM) / sizeof(KINGDOM[0]));//theo edit
-	Conquered = new string[1];
-	setKingdomConquered(KINGDOM[randomSelector]);  
+    Conquered = new string;
+    randomSelector = rand() % (sizeof(KINGDOM) / sizeof(KINGDOM[0]));
+    setKingdomConquered(KINGDOM[randomSelector]);  
 }
 
-Character::Character(const Character &o)//theo edit
+Character :: Character (string name, string occupation, string talent, int height,
+                        int weight, int gChoice, int rChoice, int hChoice, int eChoice,
+                        int kChoice)
+{
+    setName (name);
+    setGender (GENDER[gChoice] - 1);
+    setRace (RACE[rChoice] - 1);
+    setOccupation (occupation);
+    setTaSkAb (talent);
+    setLevel (0);
+    setHeight (height);
+    setWeight (weight);
+    setHair (HAIR[hChoice]- 1);
+    setEyeColor (EYECOLOR[eChoice] - 1);
+    
+    Conquered = new string;
+    setKingdomConquered (KINGDOM[kChoice] - 1);
+}
+
+// copy constructor
+Character::Character(const Character &o)
 {
 	setName(o.Name);
 	setGender(o.Gender);
@@ -83,12 +102,12 @@ Character::Character(const Character &o)//theo edit
 	setRace(o.Race);
 	setOccupation(o.Occupation);
 	setTaSkAb(o.TaSkAb);
-    setLevel(o.level);
+        setLevel(o.level);
 	setHeight(o.Height);
 	setWeight(o.Weight);
 	setHair(o.Hair);
 	setEyeColor(o.EyeColor);
-	Conquered = new string[1];
+	Conquered = new string;
 	setKingdomConquered(*(o.Conquered));    
 }
 
@@ -184,7 +203,7 @@ string Character::getEyeColor() {
 
 string Character::getKingdomConquered()//theo edit
 {
-	return *Conquered;
+    return *Conquered;
 }
 
 //member function that displays all the Character's characteristics
@@ -212,8 +231,7 @@ void Character::displayInfo()
 }
 
 /*-----Overload Operators-----*/
-//theo edit
-
+// set a character equal to another character through memberwise assignment
 void Character::operator=(const Character& o)
 {
 	delete[] Conquered;
@@ -227,15 +245,20 @@ void Character::operator=(const Character& o)
 	setWeight(o.Weight);
 	setHair(o.Hair);
 	setEyeColor(o.EyeColor);
-	Conquered = new string[1];
+	Conquered = new string;
 	setKingdomConquered(*(o.Conquered));
 }
+
+// add the heights of the characters
 Character Character::operator+(const Character& right)
 {
 	Character temp;
 	temp.Height = Height + right.Height;
 	return temp;
 }
+
+// get the difference in height of the characters
+// if it becomes negative then sets the height to 1
 Character Character::operator-(const Character& right)
 {
 	Character temp;
@@ -247,13 +270,15 @@ Character Character::operator-(const Character& right)
 	return temp;
 }
 
-//prefix
+// ++ overloader
+// increment the character's level by 1
+// prefix
 Character Character :: operator++() {
     level++;
     return *this;
 }
 
-//postfix
+// postfix
 Character Character :: operator++(int) {
     Character temp = *this;
     level++;
