@@ -229,7 +229,7 @@ void Character::displayInfo()
 // set a character equal to another character through memberwise assignment
 void Character::operator=(const Character& o)
 {
-	delete[] Conquered;
+	//delete[] Conquered;
 	setName(o.Name);
 	setGender(o.Gender);
 	setRace(o.Race);
