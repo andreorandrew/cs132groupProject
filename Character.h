@@ -36,7 +36,7 @@ public:
     /*-----CONSTRUCTORS-----*/
     Character();    //default constructor
     // custom character constructor
-    Character (string, string, int, int, int, int, int, int, int);   
+    Character (string, string, string, int, int, int, int, int, int, int);   
     
     Character(const Character&); //copy constructor
 
@@ -82,7 +82,7 @@ public:
     Character operator++(int);
     
     /*-----PRINTER-----*/
-    void displayInfo();
+    virtual void displayInfo();
     
 };
 
