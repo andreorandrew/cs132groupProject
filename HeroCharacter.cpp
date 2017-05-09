@@ -52,4 +52,28 @@ void HeroCharacter::setFollowers (int follow)
 
 
 /*-----FUNCTIONS-----*/
-void HeroCharacter::displayInfo() { }
+//the herocharacter's printInfo
+void HeroCharacter::displayInfo() {
+    if (getName() == "" && getGender() == "")
+    {
+        cout << "Character Doesn't Exist." << endl << endl;
+    }
+    else
+    {
+        cout << "Name: " << getName() << endl
+        << "Gender: " << getGender() << endl
+        << "Race: " << getRace() << endl
+        << "Occupation: " << getOccupation() << endl
+        << "Talents, Abiliities, or Skills: " << getTaSkAb() << endl
+        << "Level: " << getLevel() << endl
+        << "Hair: " << getHair() << endl
+        << "Eyes Color: " << getEyeColor() << endl
+        << "Weight: " << getWeight() << " kg" << endl
+        << "Height: " << getHeight() << " cm" << endl
+        << "Kingdom Conquered: " << getKingdomConquered() << endl
+        << "Weapon: " << getWeapon() << endl
+        <<"Followerer number " << getFollowers() << endl;
+        
+    }
+}
+
