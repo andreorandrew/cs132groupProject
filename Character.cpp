@@ -39,27 +39,22 @@ Character :: Character ()
     //to the Character (assigned to Character's respective field)
     randomSelector = rand() % (sizeof(NAME) / sizeof(NAME[0]));
     setName(NAME[randomSelector]);
-    cout << randomSelector << endl;
     
     randomSelector = rand() % (sizeof(GENDER) / sizeof(GENDER[0]));
     setGender(GENDER[randomSelector]);
-    cout << randomSelector << endl;
     
     randomSelector = rand() % (sizeof(RACE) / sizeof(RACE[0]));
     setRace(RACE[randomSelector]);
-    cout << randomSelector << endl;
     
     randomSelector = rand() % (sizeof(OCCUPATION) / sizeof(OCCUPATION[0]));
     setOccupation(OCCUPATION[randomSelector]);
-    cout << randomSelector << endl;
     
     randomSelector = rand() % (sizeof(TASKAB) / sizeof(TASKAB[0]));
     setTaSkAb(TASKAB[randomSelector]);
-    cout << randomSelector << endl;
     
     setLevel(rand() % 10);
-    setHeight(rand() % (200)+ 100);
-    setWeight(rand() % (100) + 50);
+    setHeight((rand() % 200)+ 100);
+    setWeight((rand() % 100) + 50);
     
     
     randomSelector = rand() % (sizeof(HAIR)/sizeof(HAIR[0]));
@@ -79,18 +74,18 @@ Character :: Character (string name, string occupation, string talent, int heigh
                         int kChoice)
 {
     setName (name);
-    setGender (GENDER[gChoice] - 1);
-    setRace (RACE[rChoice] - 1);
+    setGender (GENDER[gChoice - 1]);
+    setRace (RACE[rChoice - 1]);
     setOccupation (occupation);
     setTaSkAb (talent);
     setLevel (0);
     setHeight (height);
     setWeight (weight);
-    setHair (HAIR[hChoice]- 1);
-    setEyeColor (EYECOLOR[eChoice] - 1);
+    setHair (HAIR[hChoice - 1]);
+    setEyeColor (EYECOLOR[eChoice - 1]);
     
     Conquered = new string;
-    setKingdomConquered (KINGDOM[kChoice] - 1);
+    setKingdomConquered (KINGDOM[kChoice - 1]);
 }
 
 // copy constructor
