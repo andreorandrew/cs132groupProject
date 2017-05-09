@@ -8,6 +8,7 @@
 #ifndef HEROCHARACTER_H
 #define HEROCHARACTER_H
 
+#include "Character.h"
 #include <string>
 
 using namespace std;

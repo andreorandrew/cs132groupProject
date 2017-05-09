@@ -6,6 +6,7 @@
  */
 
 #include "HeroCharacter.h"
+#include "Character.h"
 #include <string>
 #include <cstdlib>
 #include <ctime>
@@ -51,4 +52,4 @@ void HeroCharacter::setFollowers (int follow)
 
 
 /*-----FUNCTIONS-----*/
-
+void HeroCharacter::displayInfo() { }
