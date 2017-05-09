@@ -31,12 +31,14 @@ private:
     int Weight;
     string Hair;
     string EyeColor;
-	string* Conquered;//theo edit
+    string* Conquered;
 public:
     /*-----CONSTRUCTORS-----*/
-    Character();//default constructor
-
-	Character(const Character&); //copy constructor
+    Character();    //default constructor
+    // custom character constructor
+    Character (string, string, int, int, int, int, int, int, int);   
+    
+    Character(const Character&); //copy constructor
 
     //destructor
     ~Character() 
@@ -54,7 +56,7 @@ public:
     void setWeight(int);
     void setHair (string);
     void setEyeColor(string);
-	void setKingdomConquered(string); //theo edit
+    void setKingdomConquered(string); //theo edit
     
     
     /*-----GETTERS-----*/
@@ -68,12 +70,11 @@ public:
     int getWeight();
     string getHair();
     string getEyeColor();
-	string getKingdomConquered();//theo edit
+    string getKingdomConquered();
 
-	/*-----OVerload Operators-----*/
-	//theo edit
-	void operator=(const Character&);
-	Character operator+(const Character&);
+    /*-----Overload Operators-----*/
+    void operator=(const Character&);
+    Character operator+(const Character&);
     Character operator-(const Character&);
     //prefix
     Character operator++();
