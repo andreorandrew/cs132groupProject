@@ -83,7 +83,7 @@ public:
     
     /*-----PRINTER-----*/
     virtual void displayInfo();
-    
+	virtual void shout();
 };
 
 #endif /* CHARACTER_H */

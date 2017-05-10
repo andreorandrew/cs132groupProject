@@ -7,8 +7,8 @@
 
 #ifndef HEROCHARACTER_H
 #define HEROCHARACTER_H
-
 #include "Character.h"
+
 #include <string>
 
 using namespace std;
@@ -39,6 +39,9 @@ public:
 
     /*-----FUNCTIONS-----*/
     void displayInfo();
+
+	//dynamic
+	void shout();
 };
 
 
