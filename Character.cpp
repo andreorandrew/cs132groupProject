@@ -1,11 +1,11 @@
 /*
-Implementation File
-Homework 14 Group Project
-1st Submission 5/3/2017
-Team members:
-Theo Siswadi
-Jia Na (Vera)
-Anh Tran (Andrew)
+    Character File
+    Homework 15 Group Project 
+    Submission 5/10/2017
+    Team members: 
+        Theo Siswadi
+        Jia Na (Vera)
+        Anh Tran (Andrew)
 */
 
 //header files
@@ -212,6 +212,7 @@ void Character::displayInfo()
 	{
 		cout << "MY NAME IS " << getName() << " ";
 		shout();
+                shout2();
 		cout << "Name: " << getName() << endl
 			<< "Gender: " << getGender() << endl
 			<< "Race: " << getRace() << endl
@@ -284,5 +285,16 @@ Character Character :: operator++(int) {
 
 void Character::shout()
 {
-	cout << "YOWZEE IM A CHARACTER" << endl;
+	cout << "YOWZEE I'M A CHARACTER" << endl;
+}
+
+void Character::cry()
+{
+    cout << "CHARACTERS!" << endl;
+}
+
+void Character::shout2()
+{
+    cry();
+    cout << " WE RULE!" << endl;
 }

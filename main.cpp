@@ -1,7 +1,7 @@
 /*
     Main File
-    Homework 14 Group Project 
-    1st Submission 5/3/2017
+    Homework 15 Group Project 
+    Submission 5/10/2017
     Team members: 
         Theo Siswadi
         Jia Na (Vera)
@@ -12,23 +12,29 @@
 #include <iostream>
 #include <string>
 #include "Character.h"
+#include "HeroCharacter.h"
+
 using namespace std;
 
 //main func. MAIN
 
 const int SIZE = 5;
-int displayMainMenu(int);
+int displayMainMenu(int, int);
+int displayCharHeroSelection();
+
 int main()
 {
     
     //define variables
     int choice;
-    Character characters[SIZE];//create a character array
+    Character characters[SIZE];         //create a character array
+    HeroCharacter hCharacters[SIZE];    // create a hero characters array
     int remainingChar = SIZE;
+    int remainingHChar = SIZE;
     
     do//do while loop for menu
     {
-        choice = displayMainMenu(remainingChar);     //call a function to prompt user input
+        choice = displayMainMenu(remainingChar, remainingHChar);     //call a function to prompt user input
         
         //user has 4 choices
         if (choice == 0)                //quits program
@@ -42,26 +48,46 @@ int main()
         }
         else if (choice == 2)           // randomize character
         {
-            Character newChar;
-            
-            characters[SIZE - remainingChar] = newChar; //assign a random character to the next element
-            
-            remainingChar--;
-            
+            if (displayCharHeroSelection() == 1)
+            {
+                Character newChar;
+
+                characters[SIZE - remainingChar] = newChar; //assign a random character to the next element
+
+                remainingChar--;
+            }
+            else
+            {
+                HeroCharacter newHero;
+                
+                hCharacters[SIZE - remainingHChar] = newHero;
+                
+                remainingHChar--;
+            }
             //display feedback
             cout << "Done! Finish randomization :)" << endl; 
         }
         else if (choice == 3)           //display characters
         {
-            if (remainingChar == SIZE)
+            if (remainingChar == SIZE && remainingHChar == SIZE)
             {
                 cout << "No Characters Created." << endl;
             }
             else
             {
-                for (int i = 0; i < SIZE - remainingChar; i++)              //loop to display all characters
+                if (displayCharHeroSelection() == 1)
                 {
-                    characters[i].displayInfo();      //call function that displays a character
+                    for (int i = 0; i < SIZE - remainingChar; i++)              //loop to display all characters
+                    {
+                        characters[i].displayInfo();      //call function that displays a character
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < SIZE - remainingHChar; i++)              //loop to display all characters
+                    {
+                        hCharacters[i].displayInfo();      //call function that displays a character
+                    }
                 }
             }
         }
@@ -78,7 +104,7 @@ int main()
 
 
 // display the main menu
-int displayMainMenu(int num)
+int displayMainMenu(int num1, int num2)
 {
     int choice = 0;
     
@@ -86,7 +112,8 @@ int displayMainMenu(int num)
     cout << "----------------------------------------" << endl;
     
     cout << "Main Menu: " << endl
-    << "-----Remaining Characters: " << num << "-----" << endl
+    << "-----Remaining Characters: " << num1 << "-----" << endl
+    << "-------Remaining Heroes: " << num2 << "-------" << endl
     << "1. Create your own Character." << endl
     << "2. Randomize a Character." << endl
     << "3. Display Character." << endl
@@ -100,3 +127,23 @@ int displayMainMenu(int num)
     return choice;
 }
 
+int displayCharHeroSelection()
+{
+    int choice;
+    
+    cout << "1. Normal Character." << endl;
+    cout << "2. Hero Character." << endl;
+    
+    cout << ">> ";
+    cin >> choice;
+    
+    while (choice != 1 && choice != 2)
+    {
+        cout << "Invalid Input - Try Again." << endl;
+        cout << ">> ";
+        
+        cin >> choice;        
+    }
+    
+    return choice;
+}
