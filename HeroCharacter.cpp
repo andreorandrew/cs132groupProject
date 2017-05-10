@@ -50,9 +50,43 @@ void HeroCharacter::setFollowers (int follow)
 }
 
 /*-----GETTERS-----*/
+string HeroCharacter::getWeapon()
+{
+    return Weapon;
+}
 
+int HeroCharacter::getFollowers()
+{
+    return Followers;
+}
 
 /*-----FUNCTIONS-----*/
+void HeroCharacter::displayInfo()
+{
+    if (getName() == "" && getGender() == "")
+    {
+        cout << "Character Doesn't Exist." << endl << endl;
+    }
+    else
+    {
+        cout << "MY NAME IS " << getName() << " ";
+        shout();
+        cout << "Name: " << getName() << endl
+        << "Gender: " << getGender() << endl
+        << "Race: " << getRace() << endl
+        << "Occupation: " << getOccupation() << endl
+        << "Talents, Abiliities, or Skills: " << getTaSkAb() << endl
+        << "Level: " << getLevel() << endl
+        << "Hair: " << getHair() << endl
+        << "Eyes Color: " << getEyeColor() << endl
+        << "Weight: " << getWeight() << " kg" << endl
+        << "Height: " << getHeight() << " cm" << endl
+        << "Kingdom Conquered: " << getKingdomConquered() << endl
+        << "Weapon: " << getWeapon() << endl
+        << "Number of followers: " << getFollowers() << endl << endl;
+        
+    }
+}
 
 void HeroCharacter::shout()
 {
