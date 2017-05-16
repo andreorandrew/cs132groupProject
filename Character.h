@@ -90,6 +90,43 @@ public:
     // static binding
     void cry();
     void shout2();
+    
+    //**********************
+    //*                    *
+    //*-----EXCEPTIONS-----*
+    //*                    *
+    //**********************    
+    class InvalidHeight
+    {
+    private:
+        int BadHeight;
+    public:
+        InvalidHeight (int x)
+        {
+            BadHeight = x;
+        }
+        
+        int getBadHeight()
+        {
+            return BadHeight;
+        }
+    };
+    
+    class InvalidWeight
+    {
+    private:
+        int BadWeight;
+    public:
+        InvalidWeight (int x)
+        {
+            BadWeight = x;
+        }
+        
+        int getBadWeight()
+        {
+            return BadWeight;
+        }
+    };
 };
 
 #endif /* CHARACTER_H */

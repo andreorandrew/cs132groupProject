@@ -32,7 +32,7 @@ int main()
     int remainingChar = SIZE;
     int remainingHChar = SIZE;
     
-    do//do while loop for menu
+    do //do while loop for menu
     {
         choice = displayMainMenu(remainingChar, remainingHChar);     //call a function to prompt user input
         
@@ -44,6 +44,41 @@ int main()
         }
         else if (choice == 1)           // customize character
         {
+            if (displayCharHeroSelection() == 1)
+            {
+                Character newChar;
+                string input;
+                int choice;
+                
+                cout << "Input Name: ";
+                cin >> input;
+                newChar.setName(input);
+                
+                cout << "Input Occupation: ";
+                cin >> input;
+                newChar.setOccupation(input);
+                
+                try
+                {
+                    cout << "Input Height: ";
+                    cin >> choice;
+                    newChar.setHeight(choice);
+                    
+                    cout << "Input Weight: ";
+                    cin >> choice;
+                    newChar.setWeight(choice);
+                }
+                catch (Character::InvalidHeight h)
+                {
+                    cout << "Height " << h.getBadHeight() << " cannot be negative." << endl;                }
+                
+                remainingChar--;
+            }
+            else
+            {
+                
+            }
+            
             cout << "Coming soon..." << endl;
         }
         else if (choice == 2)           // randomize character
@@ -103,6 +138,7 @@ int main()
 }
 
 
+/*------------------MENUS------------------*/
 // display the main menu
 int displayMainMenu(int num1, int num2)
 {
