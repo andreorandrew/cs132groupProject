@@ -1,7 +1,7 @@
 /*
-    Header File
-    Homework 13 Group Project 
-    1st Submission 5/3/2017
+    Character File
+    Homework 15 Group Project 
+    Submission 5/10/2017
     Team members: 
         Theo Siswadi
         Jia Na (Vera)
@@ -83,7 +83,13 @@ public:
     
     /*-----PRINTER-----*/
     virtual void displayInfo();
-	virtual void shout();
+    
+    // dynamic binding
+    virtual void shout();
+    
+    // static binding
+    void cry();
+    void shout2();
 };
 
 #endif /* CHARACTER_H */

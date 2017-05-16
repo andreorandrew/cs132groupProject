@@ -1,9 +1,12 @@
-/* 
- * File:   HeroCharacter.h
- * Author: Anh (Andrew) Tran
- *
- * Created on May 9, 2017
- */
+/*
+    Hero File
+    Homework 15 Group Project 
+    Submission 5/10/2017
+    Team members: 
+        Theo Siswadi
+        Jia Na (Vera)
+        Anh Tran (Andrew)
+*/
 
 #ifndef HEROCHARACTER_H
 #define HEROCHARACTER_H
@@ -27,7 +30,6 @@ public:
     
     HeroCharacter (const HeroCharacter&);
     
-    ~HeroCharacter();
 
     /*-----SETTERS-----*/
     void setWeapon (string);
@@ -40,8 +42,11 @@ public:
     /*-----FUNCTIONS-----*/
     void displayInfo();
 
-	//dynamic
-	void shout();
+    //dynamic binding
+    void shout();
+    
+    // static binding
+    void cry();
 };
 
 

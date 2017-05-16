@@ -1,9 +1,12 @@
-/* 
- * File:   HeroCharacter.cpp
- * Author: Anh (Andrew) Tran
- * 
- * Created on May 9, 2017
- */
+/*
+    Hero File
+    Homework 15 Group Project 
+    Submission 5/10/2017
+    Team members: 
+        Theo Siswadi
+        Jia Na (Vera)
+        Anh Tran (Andrew)
+*/
 
 #include "HeroCharacter.h"
 #include "Character.h"
@@ -71,6 +74,7 @@ void HeroCharacter::displayInfo()
     {
         cout << "MY NAME IS " << getName() << " ";
         shout();
+        shout2();
         cout << "Name: " << getName() << endl
         << "Gender: " << getGender() << endl
         << "Race: " << getRace() << endl
@@ -90,5 +94,10 @@ void HeroCharacter::displayInfo()
 
 void HeroCharacter::shout()
 {
-	cout << "YOWZA IM A HERO" << endl;
+    cout << "YOWZA IM A HERO" << endl;
+}
+
+void HeroCharacter::cry()
+{
+    cout << "HEROES!" << endl;
 }
