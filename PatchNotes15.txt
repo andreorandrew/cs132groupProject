@@ -1,7 +1,0 @@
-Patch Notes HW 15:
-- Added a HeroCharacter class derived from the Character class. 
-- Added option to choose between creating a Character or a Hero.
-- displayInfo is now a virtual function.
-- Added two functions
-	+ shout() demonstrates dynamic binding.
-	+ shout2() demonstrates static binding.
