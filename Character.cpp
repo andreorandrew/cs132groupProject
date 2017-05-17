@@ -138,12 +138,14 @@ void Character::setLevel(int n)
 }
 void Character::setHeight(int height)
 {
-	Height = height;
+	if (height <= 0) throw InvalidHeight(height);
+	else Height = height;
 }
 
 void Character::setWeight(int weight)
 {
-	Weight = weight;
+	if (weight <= 0) throw InvalidWeight(weight);
+	else Weight = weight;
 }
 
 void Character::setHair(string hair)
