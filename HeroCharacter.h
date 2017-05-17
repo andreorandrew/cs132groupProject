@@ -1,7 +1,7 @@
 /*
     Hero File
-    Homework 15 Group Project 
-    Submission 5/10/2017
+    Homework 16 Group Project 
+    Submission 5/17/2017
     Team members: 
         Theo Siswadi
         Jia Na (Vera)
