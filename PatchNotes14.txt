@@ -1,9 +1,0 @@
-Patch Notes Homework 14: Character Class Additions
-- Added pointer for Kingdom Conquered.
-- Added KINGDOM array.
-- Added setters and getters for Kingdom Conquered
-- Added a Level member.
-- Added setters and getters for Level member.
-- Added a constructor to customize character.
-- Added a copy constructor.
-- Added several overloading functions: =, +, -, prefix ++, postfix ++.
