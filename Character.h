@@ -16,6 +16,9 @@
 
 using namespace std;
 
+class Character;
+ostream& operator<< (ostream&, Character&);
+
 //class declaration
 class Character
 {
@@ -81,6 +84,9 @@ public:
     //postfix
     Character operator++(int);
     
+    bool operator!= (const Character&);
+
+    
     /*-----PRINTER-----*/
     virtual void displayInfo();
     
@@ -121,6 +127,8 @@ public:
                     return BadWeight;
             }
     };
+    
+    friend ostream& operator<< (ostream& strm, Character& obj);
 };
 
 #endif /* CHARACTER_H */
