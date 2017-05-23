@@ -1,7 +1,7 @@
 /*
     Character File
-    Homework 15 Group Project 
-    Submission 5/10/2017
+    Homework 16 Group Project 
+    Submission 5/17/2017
     Team members: 
         Theo Siswadi
         Jia Na (Vera)
@@ -138,12 +138,14 @@ void Character::setLevel(int n)
 }
 void Character::setHeight(int height)
 {
-	Height = height;
+	if (height <= 0) throw InvalidHeight(height);
+	else Height = height;
 }
 
 void Character::setWeight(int weight)
 {
-	Weight = weight;
+	if (weight <= 0) throw InvalidWeight(weight);
+	else Weight = weight;
 }
 
 void Character::setHair(string hair)

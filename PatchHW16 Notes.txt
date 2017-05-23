@@ -1,0 +1,6 @@
+Patch Notes Homework 16:
+- Added exception classes to Character.h.
+- Converted HeroCharacter into a class with Templates.
+- Removed HeroCharater.cpp as function definitions are now in HeroCharacter.h.
+- Added ability to create a custom character in main.cpp. This means that option 1 in the menu is no longer a "Coming Soon..."
+- try/catch blocks added to handle exceptions in custom character creation.

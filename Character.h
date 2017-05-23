@@ -1,7 +1,7 @@
 /*
     Character File
-    Homework 15 Group Project 
-    Submission 5/10/2017
+    Homework 16 Group Project 
+    Submission 5/17/2017
     Team members: 
         Theo Siswadi
         Jia Na (Vera)
@@ -46,14 +46,14 @@ public:
         cout << "In destructor now." << endl;
     }
     /*-----SETTERS-----*/
-    void setName(string);
+    void setName(string);//
     void setGender(string);
     void setRace(string);
-    void setOccupation(string);
+    void setOccupation(string);//
     void setTaSkAb(string);
     void setLevel(int);
-    void setHeight(int);
-    void setWeight(int);
+    void setHeight(int);//
+    void setWeight(int);//
     void setHair (string);
     void setEyeColor(string);
     void setKingdomConquered(string); //theo edit
@@ -90,6 +90,37 @@ public:
     // static binding
     void cry();
     void shout2();
+
+    /*-----EXCEPTIONS----*/
+    class InvalidHeight
+    {
+    private:
+            int BadHeight;
+    public:
+            InvalidHeight(int x)
+            {
+                    BadHeight = x;
+            }
+            int getBadHeight()
+            {
+                    return BadHeight;
+            }
+    };
+
+    class InvalidWeight
+    {
+    private:
+            int BadWeight;
+    public:
+            InvalidWeight(int x)
+            {
+                    BadWeight = x;
+            }
+            int getBadWeight()
+            {
+                    return BadWeight;
+            }
+    };
 };
 
 #endif /* CHARACTER_H */
