@@ -1,7 +1,7 @@
 /*
     Character File
-    Homework 16 Group Project 
-    Submission 5/17/2017
+    Homework 17 Group Project 
+    Submission 5/24/2017
     Team members: 
         Theo Siswadi
         Jia Na (Vera)
@@ -15,6 +15,9 @@
 #include<iostream>
 
 using namespace std;
+
+class Character;
+ostream& operator<< (ostream&, Character&);
 
 //class declaration
 class Character
@@ -81,6 +84,9 @@ public:
     //postfix
     Character operator++(int);
     
+    bool operator!= (const Character&);
+
+    
     /*-----PRINTER-----*/
     virtual void displayInfo();
     
@@ -121,6 +127,8 @@ public:
                     return BadWeight;
             }
     };
+    
+    friend ostream& operator<< (ostream& strm, Character& obj);
 };
 
 #endif /* CHARACTER_H */

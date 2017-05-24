@@ -1,7 +1,7 @@
 /*
     Character File
-    Homework 16 Group Project 
-    Submission 5/17/2017
+    Homework 17 Group Project 
+    Submission 5/24/2017
     Team members: 
         Theo Siswadi
         Jia Na (Vera)
@@ -16,6 +16,8 @@
 #include <ctime>
 
 using namespace std;
+
+class Character;
 
 //constant arrays for randomize character options
 string NAME[] = { "Andrew", "Theo", "Hailey", "Vera" };
@@ -276,6 +278,46 @@ Character Character::operator-(const Character& right)
 Character Character :: operator++() {
 	level++;
 	return *this;
+}
+
+bool Character::operator!= (const Character& right)
+{
+    if (this->Height != right.Height)
+    {
+        return true;
+    }
+    if (this->Weight != right.Weight)
+    {
+        return true;
+    }
+    
+    return false;
+}
+
+ostream& operator<< (ostream& strm, Character& obj)
+{
+    if (obj.getName() == "" && obj.getGender() == "")
+    {
+        strm << "Character Doesn't Exist." << endl << endl;
+    }
+    else
+    {
+        strm << "MY NAME IS " << obj.getName() << " ";
+        obj.shout();
+        obj.shout2();
+        strm << "Name: " << obj.getName() << endl
+            << "Gender: " << obj.getGender() << endl
+            << "Race: " << obj.getRace() << endl
+            << "Occupation: " << obj.getOccupation() << endl
+            << "Talents, Abilities, or Skills: " << obj.getTaSkAb() << endl
+            << "Level: " << obj.getLevel() << endl
+            << "Hair: " << obj.getHair() << endl
+            << "Eyes Color: " << obj.getEyeColor() << endl
+            << "Weight: " << obj.getWeight() << " kg" << endl
+            << "Height: " << obj.getWeight() << " cm" << endl
+            << "Kingdom Conquered: " << obj.getKingdomConquered() << endl << endl; 
+    }
+    return strm;
 }
 
 // postfix
