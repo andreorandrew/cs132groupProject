@@ -1,7 +1,7 @@
 /*
     Main File
-    Homework 16 Group Project 
-    Submission 5/17/2017
+    Homework 17 Group Project 
+    Submission 5/24/2017
     Team members: 
         Theo Siswadi
         Jia Na (Vera)
@@ -11,6 +11,7 @@
 //header files
 #include <iostream>
 #include <string>
+#include "LinkedList.h"
 #include "Character.h"
 #include "HeroCharacter.h"
 
@@ -19,7 +20,7 @@ using namespace std;
 //main func. MAIN
 
 const int SIZE = 5;
-int displayMainMenu(int, int);
+int displayMainMenu();
 int displayCharHeroSelection();
 
 int main()
@@ -27,14 +28,17 @@ int main()
     
     //define variables
     int choice;
+    
+    LinkedList<Character> characterList;
+    LinkedList<HeroCharacter<int>> heroList;
+    /*
     Character characters[SIZE];         //create a character array
     HeroCharacter<int> hCharacters[SIZE];    // create a hero characters array
-    int remainingChar = SIZE;
-    int remainingHChar = SIZE;
+    */
     
     do//do while loop for menu
     {
-        choice = displayMainMenu(remainingChar, remainingHChar);     //call a function to prompt user input
+        choice = displayMainMenu();     //call a function to prompt user input
         
         //user has 4 choices
         if (choice == 0)                //quits program
@@ -49,7 +53,6 @@ int main()
                 Character newChar;
                 string input;
                 int choice;
-                bool tryAgain = true;
 
                 //user input for Character characteristics
                 cout << "Input Name: ";
@@ -98,12 +101,10 @@ int main()
                     cin >> choice;
                     newChar.setWeight(choice);
 
-                    characters[SIZE - remainingChar] = newChar;
-                    remainingChar--;
                 }
                 catch (Character::InvalidHeight h)
                 {
-                                cout << "Height " << h.getBadHeight() << " cannot be negative." << endl;
+                    cout << "Height " << h.getBadHeight() << " cannot be negative." << endl;
                 }
                 catch (Character::InvalidWeight w)
                 {
@@ -172,9 +173,6 @@ int main()
                     cout << "Input Weight: ";
                     cin >> choice;
                     newHero.setWeight(choice);
-
-                    hCharacters[SIZE - remainingHChar] = newHero;
-                    remainingHChar--;
                 }
                 catch (Character::InvalidHeight h)
                 {
@@ -192,43 +190,31 @@ int main()
             {
                 Character newChar;
 
-                characters[SIZE - remainingChar] = newChar; //assign a random character to the next element
-
-                remainingChar--;
+                characterList.add(newChar);
             }
             else
             {
                 HeroCharacter<int> newHero;
                 
-                hCharacters[SIZE - remainingHChar] = newHero;
-                
-                remainingHChar--;
+                //heroList.add(newHero);
             }
             //display feedback
             cout << "Done! Finish randomization :)" << endl; 
         }
         else if (choice == 3)           //display characters
         {
-            if (remainingChar == SIZE && remainingHChar == SIZE)
+            int otherChoice = displayCharHeroSelection();
+            if (otherChoice == 1 && !characterList.isEmpty())
             {
-                cout << "No Characters Created." << endl;
+                characterList.print();
+            }
+            else if (otherChoice == 2 && !heroList.isEmpty())
+            {
+                heroList.print();
             }
             else
             {
-                if (displayCharHeroSelection() == 1)
-                {
-                    for (int i = 0; i < SIZE - remainingChar; i++)              //loop to display all characters
-                    {
-                        characters[i].displayInfo();      //call function that displays a character
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < SIZE - remainingHChar; i++)              //loop to display all characters
-                    {
-                        hCharacters[i].displayInfo();      //call function that displays a character
-                    }
-                }
+                cout << "No Characters Created." << endl;
             }
         }
         else //input validation
@@ -244,7 +230,7 @@ int main()
 
 
 // display the main menu
-int displayMainMenu(int num1, int num2)
+int displayMainMenu()
 {
     int choice = 0;
     
@@ -252,8 +238,6 @@ int displayMainMenu(int num1, int num2)
     cout << "----------------------------------------" << endl;
     
     cout << "Main Menu: " << endl
-    << "-----Remaining Characters: " << num1 << "-----" << endl
-    << "-------Remaining Heroes: " << num2 << "-------" << endl
     << "1. Create your own Character." << endl
     << "2. Randomize a Character." << endl
     << "3. Display Character." << endl

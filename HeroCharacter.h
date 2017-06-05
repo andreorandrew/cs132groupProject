@@ -1,7 +1,7 @@
 /*
     Hero File
-    Homework 16 Group Project 
-    Submission 5/17/2017
+    Homework 17 Group Project
+    Submission 5/24/2017
     Team members: 
         Theo Siswadi
         Jia Na (Vera)
@@ -46,13 +46,25 @@ public:
 
     /*-----FUNCTIONS-----*/
     void displayInfo();
-
+    
+    
+    /*-----Overload Operators-----*/
+    void operator=(const HeroCharacter&);
+    HeroCharacter<T> operator+(const HeroCharacter&);
+    HeroCharacter<T> operator-(const HeroCharacter&);
+    //prefix
+    HeroCharacter<T> operator++();
+    //postfix
+    HeroCharacter<T> operator++(int);
+    bool operator!= (const HeroCharacter&);
+    friend ostream& operator<< (ostream& strm, HeroCharacter& obj);
     //dynamic binding
     void shout();
     
     // static binding
 	void cry();
 };
+
 
 template <class T>
 HeroCharacter<T>::HeroCharacter() : Character()
@@ -102,6 +114,88 @@ T HeroCharacter<T>::getFollowers()
 	return Followers;
 }
 
+
+/*----Overloaded Operators----*/
+template <class T>
+void HeroCharacter<T>::operator=(const HeroCharacter & o)
+{
+    setName(o.Name);
+    setGender(o.Gender);
+    setRace(o.Race);
+    setRace(o.Race);
+    setOccupation(o.Occupation);
+    setTaSkAb(o.TaSkAb);
+    setHeight(o.Height);
+    setWeight(o.Weight);
+    setHair(o.Hair);
+    setEyeColor(o.EyeColor);
+    setKingdomConquered(*(o.Conquered));
+    setWeapon(o.Weapon);
+    setFollowers(o.Followers);
+}
+
+
+template <class T>
+//add the follower of the other herocharacter
+HeroCharacter<T> HeroCharacter<T>::operator+(const HeroCharacter & o)
+{
+    HeroCharacter temp;
+    temp.Followers = getFollowers() + o.Followers;
+    return temp;
+}
+
+template <class T>
+//subtract the follower of the other herocharacter
+HeroCharacter<T> HeroCharacter<T>::operator-(const HeroCharacter & o)
+{
+    HeroCharacter temp;
+    temp.Followers = getFollowers() - o.Followers;
+    if(temp.Followers < 0)
+        temp.Followers = 0;
+    return temp;
+}
+
+//prefix
+//increase the follower of the herocharacter by 10
+template <class T>
+HeroCharacter<T> HeroCharacter<T>::operator++()
+{
+    Followers += 10;
+    return *this;
+}
+
+//postfix
+
+template <class T>
+HeroCharacter<T> HeroCharacter<T>::operator++(int)
+{
+    HeroCharacter temp = * this;
+    Followers -= 10;
+    return temp;
+}
+
+//not equal operator
+template <class T>
+bool HeroCharacter<T>::operator!=(const HeroCharacter & o)
+{
+    if (this->Height != o.Height)
+    {
+        return true;
+    }
+    if (this->Weight != o.Weight)
+    {
+        return true;
+    }
+    if (this->Followers != o.Followers)
+    {
+        return true;
+    }
+    return false;
+}
+
+
+
+
 /*-----FUNCTIONS-----*/
 template <class T>
 void HeroCharacter<T>::displayInfo()
@@ -131,11 +225,39 @@ void HeroCharacter<T>::displayInfo()
 
 	}
 }
+template <class T>
+ostream &operator<< (ostream& strm, HeroCharacter<T>& obj)
+{
+    if (obj.getName() == "" && obj.getGender() == "")
+    {
+        strm << "Character Doesn't Exist." << endl << endl;
+    }
+    else
+    {
+        strm << "MY NAME IS " << obj.getName() << " ";
+        obj.shout();
+        obj.shout2();
+        strm << "Name: " << obj.getName() << endl
+        << "Gender: " << obj.getGender() << endl
+        << "Race: " << obj.getRace() << endl
+        << "Occupation: " << obj.getOccupation() << endl
+        << "Talents, Abilities, or Skills: " << obj.getTaSkAb() << endl
+        << "Level: " << obj.getLevel() << endl
+        << "Hair: " << obj.getHair() << endl
+        << "Eyes Color: " << obj.getEyeColor() << endl
+        << "Weight: " << obj.getWeight() << " kg" << endl
+        << "Height: " << obj.getWeight() << " cm" << endl
+        << "Kingdom Conquered: " << obj.getKingdomConquered() << endl
+        << "Weapon: " << obj.getWeapon() << endl
+        << "Number of followers: " << obj.getFollowers() << endl << endl;
+    }
+    return strm;
+}
 
 template <class T>
 void HeroCharacter<T>::shout()
 {
-	cout << "YOWZA IM A HERO" << endl;
+	cout << "YOWZA I M A HERO" << endl;
 }
 
 template <class T>
